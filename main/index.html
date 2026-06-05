@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Travel Scroll — India 1947 to 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --saffron: #FF671F;
+  --white: #FFFFFF;
+  --india-green: #046A38;
+  --navy: #0B1740;
+  --gold: #C8922A;
+  --parchment: #F5EDD6;
+  --ink: #1A1205;
+  --shadow: rgba(10,20,40,0.18);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--ink);
+  color: var(--parchment);
+  min-height: 100vh;
+}
+
+/* ──── MASTHEAD ──── */
+.masthead {
+  background: linear-gradient(135deg, var(--navy) 0%, #162050 60%, var(--navy) 100%);
+  border-bottom: 4px solid var(--gold);
+  padding: 36px 40px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content:'';
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 20px,
+    rgba(200,146,42,0.04) 20px, rgba(200,146,42,0.04) 21px
+  );
+}
+.masthead-stripe { display:flex; justify-content:center; gap:0; margin-bottom:16px; }
+.stripe { height:6px; width:120px; }
+.stripe-s { background:var(--saffron); }
+.stripe-w { background:var(--white); }
+.stripe-g { background:var(--india-green); }
+.masthead h1 {
+  font-family:'Cinzel', serif;
+  font-size: clamp(22px,4vw,46px);
+  font-weight:900;
+  color: var(--parchment);
+  letter-spacing:0.05em;
+  line-height:1.1;
+  position:relative;
+}
+.masthead h1 span { color:var(--gold); }
+.masthead-sub {
+  font-size:15px;
+  color: rgba(245,237,214,0.65);
+  font-style:italic;
+  margin-top:8px;
+  letter-spacing:0.08em;
+  position:relative;
+}
+
+/* FOOTER */
+.page-footer {
+  background:var(--navy);
+  text-align:center;
+  padding:18px;
+  font-size:11.5px;
+  color:rgba(245,237,214,0.45);
+  border-top:2px solid var(--gold);
+  font-style:italic;
+}
+
+
+/* ──── TRAVEL SCROLL SECTION ──── */
+.travel-scroll-section {
+  background: linear-gradient(160deg, #0B1740 0%, #162050 40%, #0e1a3a 100%);
+  color: var(--parchment);
+  padding: 60px 32px 70px;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid var(--gold);
+}
+.travel-scroll-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 30px,
+    rgba(200,146,42,0.03) 30px, rgba(200,146,42,0.03) 31px
+  );
+  pointer-events:none;
+}
+.travel-scroll-section::after {
+  content:'';
+  position:absolute;
+  top:-120px; right:-120px;
+  width:400px; height:400px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(200,146,42,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.ts-header {
+  text-align:center;
+  margin-bottom:40px;
+  position:relative;
+}
+.ts-header .ts-icon {
+  font-size:48px;
+  display:block;
+  margin-bottom:10px;
+  filter: drop-shadow(0 0 12px rgba(200,146,42,0.4));
+}
+.ts-header h2 {
+  font-family:'Cinzel', serif;
+  font-size: clamp(22px,3.5vw,40px);
+  font-weight:900;
+  color:var(--parchment);
+  letter-spacing:0.06em;
+  line-height:1.1;
+}
+.ts-header h2 span { color:var(--gold); }
+.ts-header p {
+  font-size:15px;
+  color:rgba(245,237,214,0.55);
+  font-style:italic;
+  margin-top:8px;
+  letter-spacing:0.06em;
+}
+.ts-stripe {
+  display:flex; justify-content:center; gap:0; margin: 18px 0 0;
+}
+
+/* NARRATIVE PARAGRAPH */
+.ts-narrative {
+  max-width:860px;
+  margin:0 auto 48px;
+  position:relative;
+}
+.ts-narrative-inner {
+  background: rgba(245,237,214,0.06);
+  border:1px solid rgba(200,146,42,0.25);
+  border-left: 4px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding: 32px 36px;
+  line-height: 1.9;
+  font-size: 16.5px;
+  color: rgba(245,237,214,0.9);
+  position:relative;
+}
+.ts-narrative-inner::before {
+  content:'\201C';
+  font-family:'Cinzel', serif;
+  font-size:80px;
+  color:rgba(200,146,42,0.18);
+  position:absolute;
+  top:-12px; left:14px;
+  line-height:1;
+}
+.ts-narrative-inner p { margin-bottom:14px; }
+.ts-narrative-inner p:last-child { margin-bottom:0; }
+.ts-narrative-inner strong { color:var(--gold); font-weight:600; }
+.ts-narrative-inner em { color:var(--saffron); font-style:normal; }
+
+/* CULTURE HIGHLIGHT CARDS */
+.ts-cards {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap:16px;
+  max-width:1100px;
+  margin:0 auto 48px;
+}
+.ts-card {
+  background:rgba(245,237,214,0.06);
+  border:1px solid rgba(200,146,42,0.2);
+  border-radius:8px;
+  padding:20px 18px;
+  text-align:center;
+  transition:transform 0.2s, background 0.2s;
+  position:relative;
+  overflow:hidden;
+}
+.ts-card:hover { transform:translateY(-3px); background:rgba(245,237,214,0.1); }
+.ts-card-icon { font-size:30px; display:block; margin-bottom:8px; }
+.ts-card-val {
+  font-family:'JetBrains Mono', monospace;
+  font-size:22px;
+  font-weight:500;
+  color:var(--gold);
+  display:block;
+  margin-bottom:4px;
+}
+.ts-card-label {
+  font-size:12px;
+  color:rgba(245,237,214,0.65);
+  font-style:italic;
+}
+
+/* CULTURE TABLE SECTION */
+.ts-table-title {
+  font-family:'Cinzel', serif;
+  font-size:18px;
+  font-weight:600;
+  color:var(--gold);
+  margin:36px 0 12px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(200,146,42,0.3);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.ts-table-title::before {
+  content:'';
+  display:inline-block;
+  width:5px; height:20px;
+  background:var(--saffron);
+  border-radius:2px;
+  flex-shrink:0;
+}
+.ts-table-wrap {
+  overflow-x:auto;
+  margin-bottom:6px;
+  border-radius:8px;
+  box-shadow:0 6px 32px rgba(0,0,0,0.4);
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+table.ts-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+  min-width:600px;
+}
+table.ts-table thead tr {
+  background: rgba(200,146,42,0.18);
+  border-bottom:2px solid rgba(200,146,42,0.5);
+}
+table.ts-table thead th {
+  padding:13px 16px;
+  font-family:'Cinzel', serif;
+  font-size:11.5px;
+  letter-spacing:0.08em;
+  font-weight:600;
+  text-align:left;
+  color:var(--gold);
+}
+table.ts-table thead th:not(:first-child) { text-align:center; }
+table.ts-table tbody tr { border-bottom:1px solid rgba(200,146,42,0.1); }
+table.ts-table tbody tr:nth-child(odd) { background:rgba(245,237,214,0.04); }
+table.ts-table tbody tr:nth-child(even) { background:rgba(245,237,214,0.008); }
+table.ts-table tbody tr:hover { background:rgba(200,146,42,0.08); }
+table.ts-table td {
+  padding:11px 16px;
+  vertical-align:middle;
+  line-height:1.45;
+  color:rgba(245,237,214,0.85);
+}
+table.ts-table td:first-child {
+  font-weight:600;
+  color:var(--parchment);
+  width:200px;
+}
+table.ts-table td:not(:first-child) { text-align:center; }
+.ts-old { color:#FFBB80; font-weight:600; }
+.ts-new { color:#7EC88A; font-weight:700; }
+.ts-change { color:#A8C4E8; font-size:12.5px; font-style:italic; }
+.ts-badge {
+  display:inline-block;
+  padding:2px 9px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:700;
+}
+.ts-badge-up   { background:rgba(21,87,36,0.5);  color:#90EE90; border:1px solid rgba(144,238,144,0.3); }
+.ts-badge-down { background:rgba(114,28,36,0.5);  color:#FFB3B3; border:1px solid rgba(255,179,179,0.3); }
+.ts-badge-neu  { background:rgba(12,84,96,0.5);   color:#87CEEB; border:1px solid rgba(135,206,235,0.3); }
+
+
+
+@media(max-width:700px){
+  .ts-cards { grid-template-columns: 1fr 1fr; }
+  .ts-narrative-inner { padding:22px 20px; font-size:15px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-stripe">
+    <div class="stripe stripe-s"></div>
+    <div class="stripe stripe-w"></div>
+    <div class="stripe stripe-g"></div>
+  </div>
+  <h1>MY TRAVEL SCROLL — <span>A Journey Through Time</span></h1>
+  <div class="masthead-sub">Travelling across India from 1947 to 2026 &mdash; culture, people, cities &amp; life transformed &nbsp;&bull;&nbsp; By Aarav Singh</div>
+</div>
+
+<div class="travel-scroll-section">
+
+  <!-- ── NARRATIVE PARAGRAPH ── -->
+  <div class="ts-narrative">
+    <div class="ts-narrative-inner">
+      <p>
+        Imagine stepping off a bullock cart in <strong>1947 India</strong> — a land of dusty, unhurried towns where women wore handwoven saris, men worked the land with wooden ploughs, and the nearest school was miles away down an unpaved road. Cities like Bombay and Calcutta were congested colonial ports; Delhi was still finding its identity as the seat of a newly born republic. The air smelled of jute, marigold, and wood smoke. Most people did not own a radio, let alone a telephone. Life expectancy hovered at a fragile <em>32 years</em>, and roughly <em>88 in every 100 adults could not read</em> the words on a ballot paper.
+      </p>
+      <p>
+        Now leap forward to <strong>2026</strong>. The bullock cart has been replaced by a metro rail gliding silently through glass-and-steel skylines. The same women — or their granddaughters — scroll social media on smartphones while managing businesses, voting in elections, and exploring careers unthinkable a generation ago. <strong>Indian cinema</strong> has gone from black-and-white regional films to a global phenomenon; <strong>street food</strong> once eaten out of clay pots is now Instagrammed from designer cafés. Festivals still blaze with colour, but they now stream live to millions worldwide. Where once 14 provinces governed a fragile dominion, <strong>28 states and 8 union territories</strong> form a constitutional republic — the world's largest democracy — with a space programme that landed on the Moon's south pole in 2023.
+      </p>
+      <p>
+        The journey from then to now is not only a story of numbers and policies. It is a story of <strong>cloth becoming code</strong> — handloom giving way to software; of <strong>silence becoming signal</strong> — 120,000 telephone lines expanding to 1.16 billion mobile subscribers; of <strong>hunger becoming aspiration</strong> — a nation once dependent on food imports becoming a leading agricultural exporter. India's cultural soul — its temples, its classical dance, its devotion, its argument — has remained the thread, even as everything woven around it changed beyond recognition.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── SNAPSHOT CARDS ── -->
+  <div class="ts-cards">
+    <div class="ts-card">
+      <span class="ts-card-icon">🎬</span>
+      <span class="ts-card-val">~2,000</span>
+      <div class="ts-card-label">Films produced per year today vs ~200 in 1947</div>
+    </div>
+    <div class="ts-card">
+      <span class="ts-card-icon">📱</span>
+      <span class="ts-card-val">760M+</span>
+      <div class="ts-card-label">Internet users in 2026 vs ~0 in 1947</div>
+    </div>
+    <div class="ts-card">
+      <span class="ts-card-icon">👗</span>
+      <span class="ts-card-val">₹1.7T</span>
+      <div class="ts-card-label">Fashion & textile industry size in 2026</div>
+    </div>
+    <div class="ts-card">
+      <span class="ts-card-icon">🏙️</span>
+      <span class="ts-card-val">36%</span>
+      <div class="ts-card-label">Urban population in 2026 vs ~17% in 1947</div>
+    </div>
+    <div class="ts-card">
+      <span class="ts-card-icon">🍛</span>
+      <span class="ts-card-val">7.5M+</span>
+      <div class="ts-card-label">Restaurants &amp; eateries across India in 2026</div>
+    </div>
+    <div class="ts-card">
+      <span class="ts-card-icon">🚆</span>
+      <span class="ts-card-val">13B</span>
+      <div class="ts-card-label">Annual railway passengers vs ~1.3B in 1947</div>
+    </div>
+  </div>
+
+  <!-- ── TABLE 1: CULTURE & ARTS ── -->
+  <div class="ts-table-title">Culture, Arts &amp; Entertainment</div>
+  <div class="ts-table-wrap">
+    <table class="ts-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>1947 (Independence)</th>
+          <th>2026 (Present)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Film Industry Output</td>
+          <td class="ts-old">~200 films/year (mostly regional)</td>
+          <td class="ts-new">~2,000 films/year; global Bollywood reach</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">10× more</span> Global OTT reach</td>
+        </tr>
+        <tr>
+          <td>Television Channels</td>
+          <td class="ts-old">None (no TV broadcast)</td>
+          <td class="ts-new">900+ TV channels; 197M TV households</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">From zero</span></td>
+        </tr>
+        <tr>
+          <td>Radio Stations</td>
+          <td class="ts-old">All India Radio only (state-run)</td>
+          <td class="ts-new">500+ FM stations; digital streaming</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Massively expanded</span></td>
+        </tr>
+        <tr>
+          <td>Classical Dance &amp; Music</td>
+          <td class="ts-old">Patronised by elite; regional guilds</td>
+          <td class="ts-new">Academies worldwide; UNESCO recognition</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Globalised</span></td>
+        </tr>
+        <tr>
+          <td>Literature (Books Published)</td>
+          <td class="ts-old">~5,000 titles/year</td>
+          <td class="ts-new">~90,000 titles/year (2nd largest in English)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">18× growth</span></td>
+        </tr>
+        <tr>
+          <td>Newspapers in Circulation</td>
+          <td class="ts-old">~300 dailies</td>
+          <td class="ts-new">17,000+ registered publications</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">57× more</span></td>
+        </tr>
+        <tr>
+          <td>Yoga &amp; Cultural Export</td>
+          <td class="ts-old">Practiced domestically; fringe globally</td>
+          <td class="ts-new">300M+ practitioners worldwide; UN Int'l Day</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Global phenomenon</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── TABLE 2: LIFESTYLE & SOCIETY ── -->
+  <div class="ts-table-title">Lifestyle, Society &amp; Daily Life</div>
+  <div class="ts-table-wrap">
+    <table class="ts-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>1947 (Independence)</th>
+          <th>2026 (Present)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Average Daily Calories</td>
+          <td class="ts-old">~1,700 kcal/person</td>
+          <td class="ts-new">~2,500 kcal/person</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">+47%</span> Near adequate nutrition</td>
+        </tr>
+        <tr>
+          <td>Urban Population Share</td>
+          <td class="ts-old">~17% (cities)</td>
+          <td class="ts-new">~36% urban; 5 mega-cities 10M+</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">+19 pts</span> Rapid urbanisation</td>
+        </tr>
+        <tr>
+          <td>Mobile Phone Subscribers</td>
+          <td class="ts-old">None</td>
+          <td class="ts-new">1.16 billion subscribers</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">From zero</span></td>
+        </tr>
+        <tr>
+          <td>Internet Users</td>
+          <td class="ts-old">None</td>
+          <td class="ts-new">760M+ users; 2nd largest globally</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">From zero</span></td>
+        </tr>
+        <tr>
+          <td>Women in Workforce</td>
+          <td class="ts-old">~14% formal participation</td>
+          <td class="ts-new">~24% (rising); 78M in MNREGA</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Growing</span> but gap remains</td>
+        </tr>
+        <tr>
+          <td>Household Electricity Access</td>
+          <td class="ts-old">~14% of households</td>
+          <td class="ts-new">~99.9% electrified villages (Saubhagya)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Near universal</span></td>
+        </tr>
+        <tr>
+          <td>Tap Water Access</td>
+          <td class="ts-old">&lt;10% households had piped water</td>
+          <td class="ts-new">~73% households (Jal Jeevan Mission)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">7× more coverage</span></td>
+        </tr>
+        <tr>
+          <td>Sanitation Coverage</td>
+          <td class="ts-old">~11% households with toilets</td>
+          <td class="ts-new">~100% rural villages (Swachh Bharat)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Near universal</span></td>
+        </tr>
+        <tr>
+          <td>Cars &amp; Personal Vehicles</td>
+          <td class="ts-old">~300,000 registered vehicles</td>
+          <td class="ts-new">330 million+ registered vehicles</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">1,100× more</span></td>
+        </tr>
+        <tr>
+          <td>Restaurants &amp; Eateries</td>
+          <td class="ts-old">Small dhabas; no organised F&amp;B sector</td>
+          <td class="ts-new">7.5M+ outlets; ₹5.99L Cr industry</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Massive formalisation</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── TABLE 3: TRANSPORT & CITIES ── -->
+  <div class="ts-table-title">Transport, Cities &amp; Infrastructure</div>
+  <div class="ts-table-wrap">
+    <table class="ts-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>1947 (Independence)</th>
+          <th>2026 (Present)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Railway Passengers (annual)</td>
+          <td class="ts-old">~1.3 billion journeys/year</td>
+          <td class="ts-new">~13 billion journeys/year</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">10× growth</span></td>
+        </tr>
+        <tr>
+          <td>Airports (operational)</td>
+          <td class="ts-old">~6 airports</td>
+          <td class="ts-new">148 airports; 3rd largest aviation market</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">25× more</span></td>
+        </tr>
+        <tr>
+          <td>National Highways</td>
+          <td class="ts-old">~24,000 km</td>
+          <td class="ts-new">146,000+ km</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">6× longer network</span></td>
+        </tr>
+        <tr>
+          <td>Metro Rail Cities</td>
+          <td class="ts-old">None</td>
+          <td class="ts-new">21 cities with metro systems</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">From zero</span></td>
+        </tr>
+        <tr>
+          <td>City Population (Mumbai)</td>
+          <td class="ts-old">~3 million (Bombay)</td>
+          <td class="ts-new">~21 million (Greater Mumbai)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">7× larger</span></td>
+        </tr>
+        <tr>
+          <td>Air Passengers (annual)</td>
+          <td class="ts-old">Negligible (elite only)</td>
+          <td class="ts-new">~190 million domestic passengers</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Democratised travel</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── TABLE 4: CLOTHING, TECHNOLOGY & INNOVATION ── -->
+  <div class="ts-table-title">Clothing, Technology &amp; Innovation</div>
+  <div class="ts-table-wrap">
+    <table class="ts-table">
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>1947 (Independence)</th>
+          <th>2026 (Present)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dominant Clothing Style</td>
+          <td class="ts-old">Handwoven khadi, dhoti, sari — regional &amp; handmade</td>
+          <td class="ts-new">Mix of Western, ethnic fusion; fast fashion dominant</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-neu">Cultural blend</span></td>
+        </tr>
+        <tr>
+          <td>Textile Export Value</td>
+          <td class="ts-old">~$0.2 billion</td>
+          <td class="ts-new">~$44 billion/year; 2nd largest exporter</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">220× growth</span></td>
+        </tr>
+        <tr>
+          <td>IT &amp; Software Industry</td>
+          <td class="ts-old">None</td>
+          <td class="ts-new">$245 billion; 5.4M employees (world's largest IT hub)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">From zero</span></td>
+        </tr>
+        <tr>
+          <td>Space Programme</td>
+          <td class="ts-old">None</td>
+          <td class="ts-new">ISRO — Moon (Chandrayaan-3 S. Pole, 2023), Mars mission</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">4th nation on Moon</span></td>
+        </tr>
+        <tr>
+          <td>Start-ups &amp; Unicorns</td>
+          <td class="ts-old">None (colonial industrial economy)</td>
+          <td class="ts-new">100,000+ start-ups; 110+ unicorns (3rd globally)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">3rd largest ecosystem</span></td>
+        </tr>
+        <tr>
+          <td>Digital Payments (UPI)</td>
+          <td class="ts-old">None; cash/barter economy</td>
+          <td class="ts-new">13 billion UPI transactions/month (2026)</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">Global fintech leader</span></td>
+        </tr>
+        <tr>
+          <td>Healthcare &amp; Doctors</td>
+          <td class="ts-old">1 doctor per 6,000 people; ~700 hospitals</td>
+          <td class="ts-new">1 doctor per 834 people; 70,000+ hospitals</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-up">7× better ratio</span></td>
+        </tr>
+        <tr>
+          <td>Khadi &amp; Handloom Sector</td>
+          <td class="ts-old">National movement; Gandhi's symbol of self-reliance</td>
+          <td class="ts-new">₹1.5L Cr handloom sector; heritage &amp; luxury fashion</td>
+          <td class="ts-change"><span class="ts-badge ts-badge-neu">Transformed to premium</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end travel-scroll-section -->
+
+
+<div class="page-footer">
+  Data sources: Census of India, World Bank, IMF (April 2026), Wikipedia, Trading Economics, Partition Museum, Human Progress Institute &nbsp;|&nbsp; Academic project reference — not for official use &nbsp;|&nbsp; Made by Aarav Singh
+</div>
+
+</body>
+</html>
